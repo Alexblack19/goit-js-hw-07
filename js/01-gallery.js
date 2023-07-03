@@ -2,23 +2,36 @@ import { galleryItems } from './gallery-items.js';
 // Change code below this line
 
 const listEl = document.querySelector('.gallery');
-console.log(listEl);
+const galleryMarkup = createImgGalleryMarkup(galleryItems);
+listEl.insertAdjacentHTML('beforeend', galleryMarkup);
 
-const markup = galleryItems
-    .map(img => {
-        `<li class="gallery__item">
-        <a class="gallery__link" href="${img.original}">
-            <img
-                class="gallery__image"
-                src="small-image.jpg"
-                data-source="${img.original}"
-                alt="${img.description}"
-            />
-        </a>
-    </li>`;
-    })
-    .join('');
+function createImgGalleryMarkup(galleryItems) {
+    return galleryItems
+        .map(({ original, preview, description }) => {
+            return `<li class="gallery__item">
+                        <a class="gallery__link" href="${original}">
+                            <img
+                                class="gallery__image"
+                                src="${preview}"
+                                data-source="${original}"
+                                alt="${description}"
+                            />
+                        </a>
+                    </li>`;
+        })
+        .join('');
+}
 
-console.log(...markup);
+listEl.addEventListener('click', onClick);
 
-console.log(galleryItems);
+function onClick(event) {
+    event.preventDefault();
+    if (event.target.className !== 'gallery__image') {
+        return;
+    }
+    openModal(event.target);
+}
+
+function openModal(image) {
+    console.log(image);
+}
