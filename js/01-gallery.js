@@ -1,11 +1,12 @@
-import { galleryItems } from "./gallery-items.js";
+import { galleryItems } from './gallery-items.js';
 // Change code below this line
 
-const listEl = document.querySelector(".gallery");
+const listEl = document.querySelector('.gallery');
 console.log(listEl);
 
-const markup = galleryItems.map((img) => {
-  `<li class="gallery__item">
+const markup = galleryItems
+    .map(img => {
+        `<li class="gallery__item">
         <a class="gallery__link" href="${img.original}">
             <img
                 class="gallery__image"
@@ -15,8 +16,9 @@ const markup = galleryItems.map((img) => {
             />
         </a>
     </li>`;
-});
+    })
+    .join('');
 
-console.log(markup);
+console.log(...markup);
 
 console.log(galleryItems);
