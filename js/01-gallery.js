@@ -29,12 +29,25 @@ function onClick(event) {
     if (!event.target.classList.contains('gallery__image')) {
         return;
     }
-
     const bigImg = `<img src="${event.target.dataset.source}"/>`;
     openModal(bigImg);
 }
 
-function openModal(bigImg) {   
+function openModal(bigImg) {
     const openModalBigImg = basicLightbox.create(`${bigImg}`);
     openModalBigImg.show();
+}
+
+const visible = basicLightbox.visible();
+if (visible) {
+    document.addEventListener('keydown', event => {
+        if (event.code === 'Escape') {
+            console.log('YES');
+            closeModal();
+        }
+    });
+}
+
+function closeModal() {
+    console.log('Hello');
 }
