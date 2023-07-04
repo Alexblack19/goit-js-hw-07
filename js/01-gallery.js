@@ -1,6 +1,5 @@
 import { galleryItems } from './gallery-items.js';
 // Change code below this line
-import * as basicLightbox from './02-lightbox.js'
 
 const listEl = document.querySelector('.gallery');
 const galleryMarkup = createImgGalleryMarkup(galleryItems);
@@ -23,21 +22,25 @@ function createImgGalleryMarkup(galleryImjArr) {
         .join('');
 }
 
-listEl.addEventListener('click', onClickOpenBigImg);
+listEl.addEventListener('click', onClick);
 
-function onClickOpenBigImg(event) {
+function onClick(event) {
     event.preventDefault();
-    if (event.target.className !== 'gallery__image') {
+    if (!event.target.classList.contains('gallery__image')) {
         return;
     }
-    const bigImg = event.target.dataset.source;
-    openModal(bigImg);
+
+    
+
+    const bigImg = `<img
+                        class="gallery__image"
+                        src="${event.target.dataset.source}"
+                        alt="${event.target.attributes.alt.textContent}"
+                    />`;
+    openModal(bigImg);    
 }
 
-function openModal(bigImg) {
-    console.log(bigImg);
-    const instance = basicLightbox.create(`
-    ${bigImg}
-`);
-    instance.show();
+function openModal(bigImg) {    
+    const openModalBigImg = basicLightbox.create(`${bigImg}`);
+    openModalBigImg.show();
 }
