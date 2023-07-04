@@ -5,8 +5,8 @@ const listEl = document.querySelector('.gallery');
 const galleryMarkup = createImgGalleryMarkup(galleryItems);
 listEl.insertAdjacentHTML('beforeend', galleryMarkup);
 
-function createImgGalleryMarkup(galleryItems) {
-    return galleryItems
+function createImgGalleryMarkup(galleryImjArr) {
+    return galleryImjArr
         .map(({ original, preview, description }) => {
             return `<li class="gallery__item">
                         <a class="gallery__link" href="${original}">
@@ -22,16 +22,17 @@ function createImgGalleryMarkup(galleryItems) {
         .join('');
 }
 
-listEl.addEventListener('click', onClick);
+listEl.addEventListener('click', onClickOpenBigImg);
 
-function onClick(event) {
+function onClickOpenBigImg(event) {
     event.preventDefault();
     if (event.target.className !== 'gallery__image') {
         return;
     }
-    openModal(event.target);
+    const bigImg = event.target.dataset.source;
+    openModal(bigImg);
 }
 
-function openModal(image) {
-    console.log(image);
+function openModal(bigImg) {
+   
 }
