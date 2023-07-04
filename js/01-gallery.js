@@ -30,17 +30,11 @@ function onClick(event) {
         return;
     }
 
-    
-
-    const bigImg = `<img
-                        class="gallery__image"
-                        src="${event.target.dataset.source}"
-                        alt="${event.target.attributes.alt.textContent}"
-                    />`;
-    openModal(bigImg);    
+    const bigImg = `<img src="${event.target.dataset.source}"/>`;
+    openModal(bigImg);
 }
 
-function openModal(bigImg) {    
+function openModal(bigImg) {   
     const openModalBigImg = basicLightbox.create(`${bigImg}`);
     openModalBigImg.show();
 }
