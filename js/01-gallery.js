@@ -1,6 +1,5 @@
 import { galleryItems } from './gallery-items.js';
 // Change code below this line
-
 const listEl = document.querySelector('.gallery');
 const galleryMarkup = createImgGalleryMarkup(galleryItems);
 listEl.insertAdjacentHTML('beforeend', galleryMarkup);
@@ -34,5 +33,8 @@ function onClickOpenBigImg(event) {
 }
 
 function openModal(bigImg) {
-   
+    const instance = basicLightbox.create(`
+    ${bigImg}
+`);
+    instance.show();
 }
