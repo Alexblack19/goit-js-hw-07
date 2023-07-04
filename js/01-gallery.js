@@ -38,16 +38,25 @@ function openModal(bigImg) {
     openModalBigImg.show();
 }
 
-const visible = basicLightbox.visible();
-if (visible) {
-    document.addEventListener('keydown', event => {
-        if (event.code === 'Escape') {
-            console.log('YES');
-            closeModal();
-        }
-    });
-}
+// const visibleModal = basicLightbox.visible();
+// console.log(visibleModal);
+// if (visibleModal) {
+//     document.addEventListener('keydown', event => {
+//         if (event.code === 'Escape') {
+//             console.log('YES');
+//             closeModal();
+//         }
+//     });
+// }
+
+document.addEventListener('keydown', event => {
+    if (event.code === 'Escape') {
+        console.log('YES');
+        closeModal();
+    }
+});
 
 function closeModal() {
     console.log('Hello');
+    openModalBigImg.close();
 }
