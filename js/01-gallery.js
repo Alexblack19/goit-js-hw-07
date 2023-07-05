@@ -22,9 +22,9 @@ function createImgGalleryMarkup(galleryImjArr) {
         .join('');
 }
 
-listEl.addEventListener('click', onClickOpen);
+listEl.addEventListener('click', onClick);
 
-function onClickOpen(event) {
+function onClick(event) {
     event.preventDefault();
     if (!event.target.classList.contains('gallery__image')) {
         return;
@@ -49,9 +49,9 @@ function openModal(bigImg) {
 //     });
 // }
 
-document.addEventListener('keydown', onClickClose);
+document.addEventListener('keydown', onKeydownEsc);
 
-function onClickClose(event) {
+function onKeydownEsc(event) {
     if (event.code !== 'Escape') {
         return;
     }
