@@ -42,7 +42,6 @@ function openModal(bigImg) {
     return modal;
 }
 
-
 // =================================
 // instance - нужно переименовать
 // ================================================
@@ -69,7 +68,7 @@ function onKeydownEsc(event) {
 
 function closeModal() {
     console.log('Hello');
-    const modal = openModal()
+    const modal = openModal();
     console.log(modal);
     modal.close();
     document.removeEventListener('keydown', onKeydownEsc);
