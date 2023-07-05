@@ -65,3 +65,18 @@ function closeModal() {
     document.removeEventListener('keydown', onClickClose);
 }
 
+
+
+
+
+
+
+
+
+
+
+
+const pEl = document.createElement('p');
+pEl.textContent = 'Qwertrtyuyeyiuy';
+console.log(pEl); // в консолі <p>Qwertrtyuyeyiuy</p> це не строка
+// Як перетворити pEl в string не прописуючі через шаблоний рядок
