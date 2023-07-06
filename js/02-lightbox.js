@@ -2,9 +2,10 @@ import { galleryItems } from './gallery-items.js';
 
 // Change code below this line
 
-const listEl = document.querySelector('.gallery');
+const galleryEl = document.querySelector('.gallery');
+console.log(galleryEl);
 const galleryMarkup = createImgGalleryMarkup(galleryItems);
-listEl.insertAdjacentHTML('beforeend', galleryMarkup);
+galleryEl.insertAdjacentHTML('beforeend', galleryMarkup);
 
 function createImgGalleryMarkup(galleryImjArr) {
     return galleryImjArr
@@ -21,4 +22,6 @@ function createImgGalleryMarkup(galleryImjArr) {
         })
         .join('');
 }
+
+
 
