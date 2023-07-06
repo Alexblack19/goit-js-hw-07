@@ -30,9 +30,10 @@ const galleryLightbox = new SimpleLightbox('.gallery__item .gallery__link', {
 //================================================
 // Закриття lightbox натисканням на клавішу Space
 //================================================
-document.addEventListener('keydown', onSpaceCloseLightbox);
-function onSpaceCloseLightbox(event) {
-    if (event.code === 'Space') {
-        galleryLightbox.close();
-    }
-}
+// document.addEventListener('keydown', onSpaceCloseLightbox);
+// function onSpaceCloseLightbox(event) {
+//     console.log(event);
+//     if (event.code === 'Space') {
+//         galleryLightbox.close();
+//     }
+// }
