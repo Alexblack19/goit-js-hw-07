@@ -27,7 +27,9 @@ const galleryLightbox = new SimpleLightbox('.gallery__item .gallery__link', {
     captionDelay: 250,
     enableKeyboard: true,
 });
-
+//================================================
+// Закриття lightbox натисканням на клавішу Space
+//================================================
 // document.addEventListener('keydown', onSpaceCloseLightbox);
 // function onSpaceCloseLightbox(event) {//     
 //     if (event.code === 'Space') {
