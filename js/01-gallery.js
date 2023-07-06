@@ -2,10 +2,10 @@ import { galleryItems } from './gallery-items.js';
 
 // Change code below this line
 
-const galleryEl = document.querySelector('.gallery');
+const galleryListEl = document.querySelector('.gallery');
 const galleryMarkup = createImgGalleryMarkup(galleryItems);
-galleryEl.insertAdjacentHTML('beforeend', galleryMarkup);
-galleryEl.addEventListener('click', onImgClick);
+galleryListEl.insertAdjacentHTML('beforeend', galleryMarkup);
+galleryListEl.addEventListener('click', onImgClick);
 
 function createImgGalleryMarkup(galleryImjArr) {
     return galleryImjArr
