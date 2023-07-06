@@ -1,11 +1,11 @@
 import { galleryItems } from './gallery-items.js';
+
 // Change code below this line
-//*===========
-//* Варіант 1
-//*===========
+
 const listEl = document.querySelector('.gallery');
 const galleryMarkup = createImgGalleryMarkup(galleryItems);
 listEl.insertAdjacentHTML('beforeend', galleryMarkup);
+listEl.addEventListener('click', onImgClick);
 
 function createImgGalleryMarkup(galleryImjArr) {
     return galleryImjArr
@@ -24,52 +24,28 @@ function createImgGalleryMarkup(galleryImjArr) {
         .join('');
 }
 
-listEl.addEventListener('click', onImgClick);
-
 function onImgClick(event) {
     event.preventDefault();
     if (!event.target.classList.contains('gallery__image')) {
         return;
     }
-
-    const bigImg = `<img src="${event.target.dataset.source}"/>`;
-    openModal(bigImg);
+    modalOpen(event);
 }
 
-function openModal(bigImg) {
-    const modal = basicLightbox.create(`${bigImg}`);
+function modalOpen(event) {
+    const originalImg = `<img src="${event.target.dataset.source}"/>`;
+    const modal = basicLightbox.create(`${originalImg}`);
     modal.show();
-    return modal;
+    modalClose(modal);
 }
 
-// =================================
-// instance - нужно переименовать
-// ================================================
-// const visibleModal = basicLightbox.visible();
-//     console.log(visibleModal);
-// if (visibleModal) {
-//     document.addEventListener('keydown', event => {
-//         if (event.code === 'Escape') {
-//             console.log('YES');
-//             closeModal();
-//         }
-//     });
-// }
-
-document.addEventListener('keydown', onKeydownEsc);
-
-function onKeydownEsc(event) {
-    if (event.code !== 'Escape') {
-        return;
+function modalClose(modal) {
+    document.addEventListener('keydown', onEscKeydown);
+    function onEscKeydown(event) {
+        if (event.code !== 'Escape') {
+            return;
+        }
+        modal.close();
+        document.removeEventListener('keydown', onEscKeydown);
     }
-    console.log('YES');
-    closeModal();
-}
-
-function closeModal() {
-    console.log('Hello');
-    const modal = openModal();
-    console.log(modal);
-    modal.close();
-    document.removeEventListener('keydown', onKeydownEsc);
 }
