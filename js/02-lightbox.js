@@ -22,5 +22,15 @@ function createImgGalleryMarkup(galleryImjArr) {
         .join('');
 }
 
+const galleryLightbox = new SimpleLightbox('.gallery__item .gallery__link', {
+    captionsData: 'alt',
+    captionDelay: 250,
+    enableKeyboard: true,
+});
 
-
+// document.addEventListener('keydown', onSpaceCloseLightbox);
+// function onSpaceCloseLightbox(event) {//     
+//     if (event.code === 'Space') {
+//         galleryLightbox.close();
+//     }
+// }
