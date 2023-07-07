@@ -35,7 +35,7 @@ function onImgClick(event) {
 function modalOpen(event) {
     const originalImg = `<img src="${event.target.dataset.source}"/>`;
     const modal = basicLightbox.create(`${originalImg}`);
-    modal.show();    
+    modal.show();
     modalClose(modal);
 }
 
